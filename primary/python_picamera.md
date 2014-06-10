@@ -12,70 +12,70 @@ sudo apt-get install python-picamera python3-picamera python-rpi.gpio
 3. Select `File > Open > Recent Files > camera.py` from the menu to start a text editor
 4. You should see the following code (case is important!):
 
-    ```python
-    import time
-    import picamera
-
-    with picamera.PiCamera() as camera:
-        camera.start_preview()
-        time.sleep(5)
-        camera.capture('/home/pi/Desktop/image.jpg')
-        camera.stop_preview()
     ```
+#!/usr/bin/python
+#####################################################
+#### We might need to the program to go to sleep
+from time import sleep
+#### We need to use python picamera
+import picamera
 
-5. Select `File > Save` from the menu and give your script a name, e.g. `workshop.py`
-6. Select `Run > Run Module` from the menu (or just press `F5`) to run the script
+with picamera.PiCamera() as camera:
+    camera.start_preview()
+    sleep(5)
+    camera.capture('/home/pi/Desktop/image.jpg')
+    camera.stop_preview()
+
+```
+
+5. Select `Run > Run Module` from the menu (or just press `F5`) to run the script
 
 ### Camera programming: capture when activated
-
+    
 1. Connect the Pi to the button as shown in the diagram below:
 
-    ![](../picamera-gpio-setup.png)
+    ![](../picamera-gpio-setup-tng.png)
 
-2. In the text editor, import the `RPi.GPIO` module, set up GPIO pin 17 and change the `sleep` line to use `GPIO.wait_for_edge` like so:
 
-    ```python
-    import time
-    import picamera
-    import RPi.GPIO as GPIO  # new
+2. At the command prompt enter `startx` to start the graphical desktop environment
+3. Double click on `LXTerminal` to start a command line, and enter `sudo idle &` to start the Python environment
+4. Select `File > Open > Recent Files > camera_gpio.py` from the menu to start a text editor
+```
+#!/usr/bin/python
+#####################################################
+#### We might need to the program to go to sleep
+from time import sleep
+#####################################################
+#### We need to use the Input pins
+import RPi.GPIO as GPIO
+prev_state = "unknown"
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+#####################################################
+#### We need to use python picamera
+import picamera
 
-    GPIO.setmode(GPIO.BCM)  # new
-    GPIO.setup(17, GPIO.IN, GPIO.PUD_UP)  # new
+# This is called an infinite loop. Repeats forever###
+while True:
+     if GPIO.input(24):
+         print ("Button is not pressed")
+         sleep(1)
+     else:
+         print ("Button is pressed")
+         with picamera.PiCamera() as camera:
+             camera.start_preview()
+             sleep(5)
+             camera.capture('/home/pi/Desktop/image.jpg')
+             camera.stop_preview()
 
-    with picamera.PiCamera() as camera:
-        camera.start_preview()
-        GPIO.wait_for_edge(17, GPIO.FALLING)  # new
-        camera.capture('/home/pi/Desktop/image.jpg')
-        camera.stop_preview()
+# Clean up afterwards
+GPIO.cleanup()
+exit();
     ```
 
 3. Delete `image.jpg` from the desktop
 4. Save and run your script
-5. Once the preview has started, press the button connected to your Pi to capture an image
-
-### Camera programming: countdown capture (selfies!)
-
-1. Modify your program to include the delay after the button wait:
-
-    ```python
-    import time
-    import picamera
-    import RPi.GPIO as GPIO
-
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(17, GPIO.IN, GPIO.PUD_UP)
-
-    with picamera.PiCamera() as camera:
-        camera.start_preview()
-        GPIO.wait_for_edge(17, GPIO.FALLING)
-        time.sleep(5)  # new
-        camera.capture('/home/pi/Desktop/image.jpg')
-        camera.stop_preview()
-    ```
-
-2. Delete `image.jpg` from the desktop
-3. Save and run your script
-4. Press the button and try to take a selfie
+5. Once the script has started, press the button connected to your Pi to capture an image
 
 ## Licence
 
