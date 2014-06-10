@@ -1,8 +1,10 @@
-### Camera programming: capture an image
+### Camera programming: GPIO pins
 
-1. Double click on `LXTerminal` to start a command line, and enter `sudo idle &` to start the Python environment
-2. Select `File > Open > Recent Files > button.py` from the menu to start a text editor
-3. You should see the following code (case is important!):
+1. Build a circuit as per the diagram:
+    ![](../picamera-gpio-setup_tng.png)
+2. Double click on `LXTerminal` to start a command line, and enter `sudo idle &` to start the Python environment
+3. Select `File > Open > Recent Files > button.py` from the menu to start a text editor
+4. You should see the following code (case is important!):
 
 ```
 #!/usr/bin/python

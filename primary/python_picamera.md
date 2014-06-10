@@ -32,7 +32,7 @@ with picamera.PiCamera() as camera:
     
 1. Connect the Pi to the button as shown in the diagram below:
 
-    ![](../picamera-gpio-setup-tng.png)
+    ![](../picamera-gpio-setup_tng.png)
 
 
 2. At the command prompt enter `startx` to start the graphical desktop environment
