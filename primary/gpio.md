@@ -4,7 +4,7 @@
 2. Select `File > Open > Recent Files > button.py` from the menu to start a text editor
 3. You should see the following code (case is important!):
 
-    ```
+```
 #!/usr/bin/python
 #####################################################
 #### We might need to the program to go to sleep
@@ -23,7 +23,6 @@ while True:
          sleep(1)
      else:
          print ("Button is pressed")
-
 # Clean up afterwards
 GPIO.cleanup()
 exit();

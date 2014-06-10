@@ -12,20 +12,18 @@ sudo apt-get install python-picamera python3-picamera python-rpi.gpio
 3. Select `File > Open > Recent Files > camera.py` from the menu to start a text editor
 4. You should see the following code (case is important!):
 
-    ```
+```
 #!/usr/bin/python
 #####################################################
 #### We might need to the program to go to sleep
 from time import sleep
 #### We need to use python picamera
 import picamera
-
 with picamera.PiCamera() as camera:
     camera.start_preview()
     sleep(5)
     camera.capture('/home/pi/Desktop/image.jpg')
     camera.stop_preview()
-
 ```
 
 5. Select `Run > Run Module` from the menu (or just press `F5`) to run the script
