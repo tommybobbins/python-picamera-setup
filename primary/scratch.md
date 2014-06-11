@@ -29,13 +29,24 @@ This workshop guides you through setting up the Raspberry Pi camera module, taki
 2. At the command prompt enter `raspistill -o image.jpg`
 3. On the screen you should see a preview appear for a few seconds, and then change briefly while the image is captured
 
+### Create the selfies directory
+
+1. Double click on `LXTerminal` to start a command line
+2. At the command prompt enter `cd ~/Desktop` to change directory to the Desktop 
+3. Create a shortcut (in Raspbian this is known as a Symbolic link) between the photos directory and SELFIES to make it easier to find your selfies `ln -s ../photos SELFIES`
+4. A Folder named `SELFIES` should appear on the Desktop
+
+
 ### Connect the circuit board to the Raspberry Pi
 
 1. Connect the circuit board up.
 
     ![](../cobbler_switch_photobooth_bb.png)
 
-2. Double click on `Scratch GPIO 5`
+2. Double click on `Scratch GPIO 5` icon
+    
+    ![](../scratch_gpio5_icon.png)
+
 3. Join the blocks together making your photo booth
 
     ![](../scratch_camera.gif)
