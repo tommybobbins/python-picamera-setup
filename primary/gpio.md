@@ -14,8 +14,9 @@ from time import sleep
 #####################################################
 #### We need to use the Input pins
 import RPi.GPIO as GPIO
-prev_state = "unknown"
+# How we label the pins based on a Physical or logical layout
 GPIO.setmode(GPIO.BCM)
+# Setup Pin 24
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #####################################################
 # This is called an infinite loop. Repeats forever###
@@ -28,6 +29,7 @@ while True:
 # Clean up afterwards
 GPIO.cleanup()
 exit();
+
 ```
 
 4. Select `Run > Run Module` from the menu (or just press `F5`) to run the script
