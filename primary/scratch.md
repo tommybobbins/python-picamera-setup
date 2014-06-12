@@ -67,6 +67,8 @@ This workshop guides you through setting up the Raspberry Pi camera module, taki
 
     ![](../pibrella_selfie_camera.gif)
 
+4. Tick the green Flag and then press the button on the Pibrella. Your photos will be in the SELFIES directory on the desktop.
+
 ## Licence
 
 Unless otherwise specified, everything in this repository is covered by the following licence:
