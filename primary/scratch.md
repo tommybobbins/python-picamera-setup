@@ -53,6 +53,8 @@ This workshop guides you through setting up the Raspberry Pi camera module, taki
 
 4. Tick the green Flag and then press the button on the printed circuit board. Your photos will be in the SELFIES directory on the desktop.
 
+5. Double click on a photo and it should be displayed on the desktop.
+
 ## Connect the Pibrella board to the Raspberry Pi
 
 1. Attach the Pibrella to the Raspberry Pi. You may need some help with this. Power up the Pibrella  and not the Raspberry Pi.
@@ -68,6 +70,8 @@ This workshop guides you through setting up the Raspberry Pi camera module, taki
     ![](../pibrella_selfie_camera.gif)
 
 4. Tick the green Flag and then press the button on the Pibrella. Your photos will be in the SELFIES directory on the desktop.
+
+5. Double click on a photo and it should be displayed on the desktop.
 
 ## Licence
 
